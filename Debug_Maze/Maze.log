@@ -1,0 +1,8 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(502,5): warning MSB8004: Intermediate 디렉터리가 슬래시로 끝나지 않습니다. Intermediate 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
+  Board.cpp
+  ConsoleHelper.cpp
+  Maze.cpp
+  Player.cpp
+  pch.cpp
+D:\Work\Cpp\Algorithm\Maze\Player.cpp(91,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Maze.vcxproj -> D:\Work\Cpp\Algorithm\Debug\Maze.exe

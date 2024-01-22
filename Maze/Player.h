@@ -10,13 +10,17 @@ class Player
 	};
 
 public:
-	void	Init(Board* board);
-	void	Update(uint64 deltaTick);
+	void		Init(Board* board);
+	void		Update(uint64 deltaTick);
 
-	void	SetPos(Pos pos) { _pos = pos; }
-	Pos		GetPos() { return _pos; }
+	void		SetPos(Pos pos) { _pos = pos; }
+	Pos			GetPos() { return _pos; }
 
-	bool	CanGo(Pos pos);
+	bool		CanGo(Pos pos);
+
+private:
+	void		RightHand();
+	void		Bfs();
 
 private:
 	Pos			_pos = {};
