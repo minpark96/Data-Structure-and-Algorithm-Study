@@ -133,16 +133,80 @@ void Solution(vector<int>& input, vector<int>& output)
 	2. vector를 사용하지않고 하는 방법이 있는지?
 */
 
-void Combi(int start, vector<int> ans);
+//void Combi(int start, vector<int> ans);
+//
+//const int n = 9;
+//const int r = 7;
+//const int target = 100;
+//vector<int> input(n);
+//bool isFound = false;
+//
+//int main()
+//{
+//	vector<int> ans;
+//	int sum = 0;
+//
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> input[i];
+//		sum += input[i];
+//	}
+//
+//	sort(input.begin(), input.end());
+//
+//	Combi(0, ans);
+//
+//	return 0;
+//}
+//
+//void Combi(int start, vector<int> ans)
+//{
+//	if (ans.size() == r)
+//	{
+//		int sum = 0;
+//		for (int i : ans)
+//		{
+//			sum += input[i];
+//		}
+//
+//		if (sum == target)
+//		{
+//			isFound = true;
+//			for (int j : ans)
+//			{
+//				cout << input[j] << "\n";
+//			}
+//		}
+//		return;
+//	}
+//
+//	for (int i = start; i < n; i++)
+//	{
+//		ans.push_back(i);
+//		Combi(i + 1, ans);
+//		if (isFound)
+//			return;
+//		ans.pop_back();
+//	}
+//}
 
+#pragma endregion
+
+#pragma region 개선 3 - 순열(next_permutation)로 풀기
+/*
+	순열을 사용해도 상관없음.
+	문제의 조건이 일단 찾으면 종료이기 때문에 중복을 신경쓰지 않아도 됨
+	next_permutation으로 수를 찾고 출력을 할 때 정렬이 필요 없었는데
+	디버깅 해보니 next_permutation의 동작 방식이 최초에 7가지 수를 뽑았을 때는 오름차순 정렬이 된 상태인걸로 확인 됨
+	그러나 그 과정까지 가는데 중복된 경우를 몇가지 찾으므로 가능하면 조합으로 푸는게 더 낫다고 생각한다.
+*/
 const int n = 9;
-const int r = 7;
+const int r = 2;
 const int target = 100;
-vector<int> input(n);
-bool isFound = false;
 
 int main()
 {
+	vector<int> input(n);
 	vector<int> ans;
 	int sum = 0;
 
@@ -153,41 +217,26 @@ int main()
 	}
 
 	sort(input.begin(), input.end());
-
-	Combi(0, ans);
-
-	return 0;
-}
-
-void Combi(int start, vector<int> ans)
-{
-	if (ans.size() == r)
+	
+	do
 	{
-		int sum = 0;
-		for (int i : ans)
+		int tmp = sum;
+		for (int i = 0; i < r; i++)
 		{
-			sum += input[i];
+			tmp -= input[n - 1 - i];
 		}
 
-		if (sum == target)
+		if (tmp == target)
 		{
-			isFound = true;
-			for (int j : ans)
+			for (int j = 0; j < n - r; j++)
 			{
 				cout << input[j] << "\n";
 			}
+			break;
 		}
-		return;
-	}
+	} while(next_permutation(input.begin(), input.end()));
 
-	for (int i = start; i < n; i++)
-	{
-		ans.push_back(i);
-		Combi(i + 1, ans);
-		if (isFound)
-			return;
-		ans.pop_back();
-	}
+	return 0;
 }
 
 #pragma endregion
