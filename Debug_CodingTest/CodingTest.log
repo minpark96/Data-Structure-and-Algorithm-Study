@@ -1,0 +1,8 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(502,5): warning MSB8004: Intermediate 디렉터리가 슬래시로 끝나지 않습니다. Intermediate 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
+  2309.cpp
+D:\Work\Cpp\Algorithm\CodingTest\2309.cpp(26,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Work\Cpp\Algorithm\CodingTest\2309.cpp(38,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Work\Cpp\Algorithm\CodingTest\2309.cpp(40,25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Work\Cpp\Algorithm\CodingTest\2309.cpp(44,22): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Work\Cpp\Algorithm\CodingTest\2309.cpp(54,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  CodingTest.vcxproj -> D:\Work\Cpp\Algorithm\Debug\CodingTest.exe
