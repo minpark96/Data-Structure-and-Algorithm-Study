@@ -78,46 +78,115 @@ void Solution(vector<int>& input, vector<int>& output)
 	2. 일단 전체 합을 구해놓고 2개만 뽑아서 빼기
 	매번 합을 구할 필요가 없음
 */
-void Solve(int* ary, const int size, const int sum);
+//void Solve(int* ary, const int size, const int sum);
+//
+//int main()
+//{
+//	const int size = 9;
+//
+//	int input[size];
+//	int sum = 0;
+//
+//	for (int i = 0; i < size; i++)
+//	{
+//		cin >> input[i];
+//		sum += input[i];
+//	}
+//
+//	sort(input, input + size);
+//
+//	Solve(input, size, sum);
+//
+//	return 0;
+//}
+//
+//void Solve(int* ary, const int size, const int sum)
+//{
+//	const int target = 100;
+//	for (int i = 0; i < size - 1; i++)
+//	{
+//		for (int j = i + 1; j < size; j++)
+//		{
+//			if (sum - ary[i] - ary[j] == target)
+//			{
+//				for (int k = 0; k < size; k++)
+//				{
+//					if (k == i || k == j) continue;
+//
+//					cout << ary[k] << "\n";
+//				}
+//				return;
+//			}
+//		}
+//	}
+//}
+
+#pragma endregion
+
+#pragma region 개선 2 - 재귀함수 이용한 조합으로 풀기
+/*
+	r값이 커져 중첩 for문으로 하기에는 너무 for문이 많아지면
+	재귀함수를 이용하면 코드가 간결해진다!
+
+	그러나 
+	1. 전역으로 사용하지 않으면 인자가 너무 많아짐
+	2. vector를 사용하지않고 하는 방법이 있는지?
+*/
+
+void Combi(int start, vector<int> ans);
+
+const int n = 9;
+const int r = 7;
+const int target = 100;
+vector<int> input(n);
+bool isFound = false;
 
 int main()
 {
-	const int size = 9;
-
-	int input[size];
+	vector<int> ans;
 	int sum = 0;
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < n; i++)
 	{
 		cin >> input[i];
 		sum += input[i];
 	}
 
-	sort(input, input + size);
+	sort(input.begin(), input.end());
 
-	Solve(input, size, sum);
+	Combi(0, ans);
 
 	return 0;
 }
 
-void Solve(int* ary, const int size, const int sum)
+void Combi(int start, vector<int> ans)
 {
-	const int target = 100;
-	for (int i = 0; i < size - 1; i++)
+	if (ans.size() == r)
 	{
-		for (int j = i + 1; j < size; j++)
+		int sum = 0;
+		for (int i : ans)
 		{
-			if (sum - ary[i] - ary[j] == target)
-			{
-				for (int k = 0; k < size; k++)
-				{
-					if (k == i || k == j) continue;
+			sum += input[i];
+		}
 
-					cout << ary[k] << "\n";
-				}
-				return;
+		if (sum == target)
+		{
+			isFound = true;
+			for (int j : ans)
+			{
+				cout << input[j] << "\n";
 			}
 		}
+		return;
+	}
+
+	for (int i = start; i < n; i++)
+	{
+		ans.push_back(i);
+		Combi(i + 1, ans);
+		if (isFound)
+			return;
+		ans.pop_back();
 	}
 }
 
