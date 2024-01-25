@@ -3,6 +3,9 @@
 #include <algorithm>
 
 using namespace std;
+
+#pragma region 최초 풀이
+/*
 void Solution(vector<int>& input, vector<int>& output);
 
 int main()
@@ -61,3 +64,61 @@ void Solution(vector<int>& input, vector<int>& output)
 		}
 	}
 }
+*/
+#pragma endregion
+
+#pragma region 개선 1 - 조합의 개념을 써서 풀기
+/*
+	1. 꼭 vector를 사용할 필요는 없을 듯 
+	STL sort는 배열을 정렬 할 수 있을까?
+	=> 가능. 
+	배열의 sort(시작 지점 포인터, 끝나는 지점 포인터)
+	vector -> 배열로 수정
+
+	2. 일단 전체 합을 구해놓고 2개만 뽑아서 빼기
+	매번 합을 구할 필요가 없음
+*/
+void Solve(int* ary, const int size, const int sum);
+
+int main()
+{
+	const int size = 9;
+
+	int input[size];
+	int sum = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		cin >> input[i];
+		sum += input[i];
+	}
+
+	sort(input, input + size);
+
+	Solve(input, size, sum);
+
+	return 0;
+}
+
+void Solve(int* ary, const int size, const int sum)
+{
+	const int target = 100;
+	for (int i = 0; i < size - 1; i++)
+	{
+		for (int j = i + 1; j < size; j++)
+		{
+			if (sum - ary[i] - ary[j] == target)
+			{
+				for (int k = 0; k < size; k++)
+				{
+					if (k == i || k == j) continue;
+
+					cout << ary[k] << "\n";
+				}
+				return;
+			}
+		}
+	}
+}
+
+#pragma endregion
