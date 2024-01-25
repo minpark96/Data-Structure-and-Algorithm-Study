@@ -200,43 +200,199 @@ void Solution(vector<int>& input, vector<int>& output)
 	디버깅 해보니 next_permutation의 동작 방식이 최초에 7가지 수를 뽑았을 때는 오름차순 정렬이 된 상태인걸로 확인 됨
 	그러나 그 과정까지 가는데 중복된 경우를 몇가지 찾으므로 가능하면 조합으로 푸는게 더 낫다고 생각한다.
 */
-const int n = 9;
-const int r = 2;
+//void Print();
+//const int n = 9;
+//const int r = 2;
+//const int target = 100;
+//vector<int> input(n);
+//int main()
+//{
+//	vector<int> ans;
+//	int sum = 0;
+//
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> input[i];
+//		sum += input[i];
+//	}
+//
+//	sort(input.begin(), input.end());
+//	
+//	do
+//	{
+//		Print();
+//		int tmp = sum;
+//		for (int i = 0; i < r; i++)
+//		{
+//			tmp -= input[n - 1 - i];
+//		}
+//
+//		if (tmp == target)
+//		{
+//			for (int j = 0; j < n - r; j++)
+//			{
+//				cout << input[j] << "\n";
+//			}
+//			break;
+//		}
+//	} while(next_permutation(input.begin(), input.end()));
+//
+//	return 0;
+//}
+//
+//void Print()
+//{
+//	for (int i : input)
+//	{
+//		cout << i << " ";
+//	}
+//	cout << "\n";
+//}
+
+#pragma endregion
+
+#pragma region 개선 4 - 순열(재귀)로 풀기
+/*
+	재귀 함수로 순열 구현 연습
+*/
+void Print();
+void Solve(int r);
+void MakePermutation(int n, int r, int depth);
+
 const int target = 100;
+int sum = 0;
+vector<int> input;
 
 int main()
 {
-	vector<int> input(n);
 	vector<int> ans;
-	int sum = 0;
 
+	const int n = 9;
+	const int r = 2;
+	input.resize(n);
 	for (int i = 0; i < n; i++)
 	{
 		cin >> input[i];
 		sum += input[i];
 	}
 
-	sort(input.begin(), input.end());
-	
-	do
-	{
-		int tmp = sum;
-		for (int i = 0; i < r; i++)
-		{
-			tmp -= input[n - 1 - i];
-		}
-
-		if (tmp == target)
-		{
-			for (int j = 0; j < n - r; j++)
-			{
-				cout << input[j] << "\n";
-			}
-			break;
-		}
-	} while(next_permutation(input.begin(), input.end()));
+	MakePermutation(n, r, 0);
 
 	return 0;
 }
+
+void MakePermutation(int n, int r, int depth)
+{
+	if (r == depth)
+	{
+		Print();
+		Solve(r);
+		return;
+	}
+
+	for (int i = depth; i < n; i++)
+	{
+		swap(input[i], input[depth]);
+		MakePermutation(n, r, depth + 1);
+		swap(input[i], input[depth]);
+	}
+}
+
+void Solve(int r)
+{
+	int tmp = sum;
+	for (int i = 0; i < r; i++)
+	{
+		tmp -= input[i];
+	}
+	if (tmp == target)
+	{
+		sort(input.begin() + r, input.end());
+		for (int i = r; i < input.size(); i++)
+		{
+			cout << input[i] << "\n";
+		}
+		exit(0);
+	}
+}
+
+void Print()
+{
+	for (int i : input)
+	{
+		cout << i << " ";
+	}
+	cout << "\n";
+}
+
+
+// r=7일때 훨씬 오래걸림
+
+//void Print();
+//void Solve(int n, int r);
+//void MakePermutation(int n, int r, int depth);
+//
+//const int target = 100;
+//int sum = 0;
+//vector<int> input;
+//
+//int main()
+//{
+//	vector<int> ans;
+//
+//	const int n = 9;
+//	const int r = 7;
+//	input.resize(n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> input[i];
+//		sum += input[i];
+//	}
+//
+//	MakePermutation(n, r, 0);
+//
+//	return 0;
+//}
+//
+//void MakePermutation(int n, int r, int depth)
+//{
+//	if (r == depth) {
+//		Print();
+//		Solve(n, r);
+//		return;
+//	}
+//	for (int i = depth; i < n; i++) {
+//		swap(input[i], input[depth]);
+//		MakePermutation(n, r, depth + 1);
+//		swap(input[i], input[depth]);
+//	}
+//}
+//
+//void Solve(int n, int r)
+//{
+//	int tmp = sum;
+//	for (int i = 0; i < n - r; i++)
+//	{
+//		tmp -= input[i];
+//	}
+//	if (tmp == target)
+//	{
+//		sort(input.begin() + n - r, input.end());
+//		for (int i = n - r; i < n; i++)
+//		{
+//			cout << input[i] << "\n";
+//		}
+//		exit(0);
+//	}
+//}
+//
+//void Print()
+//{
+//	for (int i : input)
+//	{
+//		cout << i << " ";
+//	}
+//	cout << "\n";
+//}
 
 #pragma endregion
