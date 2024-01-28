@@ -4,24 +4,46 @@
 using namespace std;
 
 #pragma region 최초풀이
+//int main()
+//{
+//	string input;
+//	int alpha[26] = { 0, };
+//
+//	cin >> input;
+//
+//	for (int i = 0; i < input.size(); i++)
+//	{
+//		char ch = input[i];
+//
+//		ch -= 'a';
+//		alpha[ch]++;
+//	}
+//
+//	for (int j = 0; j < 26; j++)
+//	{
+//		cout << alpha[j] << " ";
+//	}
+//
+//	return 0;
+//}
+#pragma endregion
+
+#pragma region 개선
 int main()
 {
-	string input;
-	int alpha[26] = { 0, };
+	string str;
+	int cnt[26] = { 0, };
 
-	cin >> input;
+	cin >> str;
 
-	for (int i = 0; i < input.size(); i++)
+	for (char ch : str)
 	{
-		char ch = input[i];
-
-		ch -= 'a';
-		alpha[ch]++;
+		cnt[ch - 'a']++;
 	}
 
 	for (int j = 0; j < 26; j++)
 	{
-		cout << alpha[j] << " ";
+		cout << cnt[j] << " ";
 	}
 
 	return 0;
