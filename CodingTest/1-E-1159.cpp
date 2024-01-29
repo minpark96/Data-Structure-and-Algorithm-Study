@@ -16,16 +16,44 @@ int main()
 		cnt[str[0] - 'a']++;
 	}
 
-	for (int n : cnt)
+	for (int i = 0; i < 26; i++)
 	{
-		if (n > 4)
+		if (cnt[i] > 4)
 		{
-			cout << (char)(n + 'a');
+			cout << (char)(i + 'a');
 			canPlaying = true;
 		}
 	}
 
 	if (!canPlaying)
+		cout << "PREDAJA";
+
+	return 0;
+}
+#pragma endregion
+
+#pragma region °³¼±
+int main()
+{
+	int num;
+	cin >> num;
+	int cnt[26] = { 0, };
+	string str, ret;
+	bool canPlaying = false;
+	for (int i = 0; i < num; i++)
+	{
+		cin >> str;
+		cnt[str[0] - 'a']++;
+	}
+
+	for (int i = 0; i < 26; i++)
+	{
+		if (cnt[i] > 4) ret += i + 'a';
+	}
+
+	if (ret.size())
+		cout << ret;
+	else
 		cout << "PREDAJA";
 
 	return 0;
