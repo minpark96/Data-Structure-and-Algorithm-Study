@@ -3,36 +3,38 @@
 
 using namespace std;
 
-#pragma region 최초 풀이
+#pragma region 최초 풀이 - 오답
 
 int main()
 {
 	int num;
 	cin >> num;
 	string pat, str;
-	bool ret[100];
+	bool ret[101] = { false, };
 	cin >> pat;
+	string postfix, prefix;
+	for (int j = 0; j < pat.size(); j++)
+	{
+		if (pat[j] != '*')
+		{
+			postfix += pat[j];
+		}
+		else
+		{
+			prefix = postfix;
+			postfix.clear();
+		}
+	}
 
 	for (int i = 0; i < num; i++)
 	{
 		cin >> str;
+		size_t n = str.find(prefix, 0);
+		if (n != 0)	continue;
+		n = str.find(postfix, str.size() - postfix.size());
+		if (n != str.size() - postfix.size()) continue;
 
-		for (int j = 0; j < pat.size(); j++)
-		{
-			if (pat[j] != '*')
-			{
-				if (str[0] == pat[0] && str[str.size() - 1] == pat[2])
-					ret[i] = true;
-				else
-					ret[i] = false;
-
-			}
-			else
-			{
-
-			}
-
-		}
+		ret[i] = true;
 	}
 
 	for (int j = 0; j < num; j++)
