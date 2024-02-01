@@ -4,7 +4,7 @@
 
 using namespace std;
 
-#pragma region 최초 풀이
+#pragma region 최초 풀이 - 정답 참고
 
 //string names[100001];
 //string answers[100001];
