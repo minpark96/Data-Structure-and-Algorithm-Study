@@ -6,6 +6,7 @@ using namespace std;
 
 // 1. A나 B의 개수가 홀수면 안됨
 // 2. A를 뽑고 다음 것이 B가 나왔으면 그 B가 매칭되기전에 A가 나오면 안됨
+#pragma region 최초 풀이
 
 int main()
 {
@@ -19,21 +20,23 @@ int main()
 		cin >> str;
 		for (char ch : str)
 		{
+			char temp = NULL;
 			if (!sta.empty())
-			{
-				char temp = sta.top();
-				if (temp == ch)
-					sta.pop();
-				else
-					sta.push(ch);
-			}
+				temp = sta.top();
+			if (temp == ch)
+				sta.pop();
+			else
+				sta.push(ch);
 		}
 
 		if (sta.empty())
 			ret++;
+		cnt--;
 	}
 
 	cout << ret << "\n";
 
 	return 0;
 }
+
+#pragma endregion
