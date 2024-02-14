@@ -13,6 +13,13 @@ int main()
 	unsigned long long a, b, c, ret;
 	cin >> a >> b >> c;
 
+	ret = a % c;
+	for (int i = 1; i < b; i++)
+	{
+		ret *= a % c;
+		ret %= c;
+	}
+
 	// a^b % c
 	
 	//a^b/2 * a^b/2
