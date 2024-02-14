@@ -8,38 +8,38 @@ using namespace std;
 // 2. A를 뽑고 다음 것이 B가 나왔으면 그 B가 매칭되기전에 A가 나오면 안됨
 #pragma region 최초 풀이
 
-int main()
-{
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-	int cnt, ret = 0;
-
-	cin >> cnt;
-	while (cnt > 0)
-	{
-		string str;
-		stack<char> sta;
-		cin >> str;
-		for (char ch : str)
-		{
-			char temp = NULL;
-			if (!sta.empty())
-				temp = sta.top();
-			if (temp == ch)
-				sta.pop();
-			else
-				sta.push(ch);
-		}
-
-		if (sta.empty())
-			ret++;
-		cnt--;
-	}
-
-	cout << ret << "\n";
-
-	return 0;
-}
+//int main()
+//{
+//	ios_base::sync_with_stdio(false);
+//	cin.tie(NULL); cout.tie(NULL);
+//	int cnt, ret = 0;
+//
+//	cin >> cnt;
+//	while (cnt > 0)
+//	{
+//		string str;
+//		stack<char> sta;
+//		cin >> str;
+//		for (char ch : str)
+//		{
+//			char temp = NULL;
+//			if (!sta.empty())
+//				temp = sta.top();
+//			if (temp == ch)
+//				sta.pop();
+//			else
+//				sta.push(ch);
+//		}
+//
+//		if (sta.empty())
+//			ret++;
+//		cnt--;
+//	}
+//
+//	cout << ret << "\n";
+//
+//	return 0;
+//}
 
 #pragma endregion
 
