@@ -2,6 +2,11 @@
 #include <string>
 using namespace std;
 
+/*
+	[해결방안]
+	아스키코드를 사용하는데 범위를 벗어난 것에 대한 예외처리가 필요하다.
+*/
+
 #pragma region 최초 풀이
 
 int main()

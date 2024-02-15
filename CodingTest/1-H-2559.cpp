@@ -3,6 +3,12 @@
 
 using namespace std;
 
+/*
+	[해결방안]
+	범위가 제한된 누적합에 대한 문제
+	슬라이딩 윈도우같은 개념이다.
+*/
+
 #pragma region 최초 풀이
 
 //int main()

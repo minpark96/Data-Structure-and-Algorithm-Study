@@ -4,6 +4,14 @@
 
 using namespace std;
 
+/*
+	[해결방법]
+	탐색 시간 때문에 map을 사용해야한다.
+	map의 탐색 시간복잡도는 O(logN)이다
+	입력을 정수도 문자열로 받기 때문에 문자열->정수처리가 필요하다.
+	atoi, c_str을 사용하는데 stoi하나만 사용해도 될 것 같다.
+*/
+
 #pragma region 최초 풀이 - 정답 참고
 
 //string names[100001];

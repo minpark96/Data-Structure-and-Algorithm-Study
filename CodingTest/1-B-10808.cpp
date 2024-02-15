@@ -3,6 +3,11 @@
 
 using namespace std;
 
+/*
+	[해결방안]
+	아스키 코드 개념과 카운트 배열을 활용
+*/
+
 #pragma region 최초풀이
 //int main()
 //{

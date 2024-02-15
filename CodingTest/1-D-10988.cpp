@@ -4,7 +4,13 @@
 
 using namespace std;
 
+/*
+	[해결방안]
+	회문의 가장 간단한 해결방법은 뒤집어서 같은지 비교하면 된다.
+*/
+
 #pragma region 최초 풀이
+
 int main()
 {
 	string str1, str2;
@@ -16,4 +22,5 @@ int main()
 
 	return 0;
 }
+
 #pragma endregion

@@ -3,6 +3,12 @@
 
 using namespace std;
 
+/*
+	[해결방안]
+	string 클래스 함수에 대한 문제
+	접두사와 접미사에 대한 이해와 문자열을 적절히 자르고 붙일 수 있어야 한다. 
+*/
+
 #pragma region 최초 풀이 - 오답
 
 //int main()

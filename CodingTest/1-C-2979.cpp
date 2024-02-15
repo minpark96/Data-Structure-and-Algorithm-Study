@@ -2,6 +2,11 @@
 
 using namespace std;
 
+/*
+	[해결방안]
+	현재 시간에서 트럭의 수를 기록하는 카운트 배열을 사용
+*/
+
 #pragma region 최초 풀이
 //int main()
 //{

@@ -4,6 +4,11 @@
 
 using namespace std;
 
+/*
+	순열 또는 조합으로 풀어야 하는 문제
+	성능을 신경쓴다면 조합 푸는 속도는 순열이 더 생각하기 쉽다.
+*/
+
 #pragma region 최초 풀이
 /*
 void Solution(vector<int>& input, vector<int>& output);
