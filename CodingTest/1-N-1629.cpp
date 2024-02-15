@@ -1,33 +1,31 @@
 #include <iostream>
-#include <math.h>
 
 using namespace std;
 
-#pragma region 푸는중
+#pragma region 최초 풀이 - 정답 참조
+
+typedef long long ll;
+ll A, B, C;
+ll Go(ll b);
 
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
-
-	unsigned long long a, b, c, ret;
-	cin >> a >> b >> c;
-
-	ret = a % c;
-	for (int i = 1; i < b; i++)
-	{
-		ret *= a % c;
-		ret %= c;
-	}
-
-	// a^b % c
-	
-	//a^b/2 * a^b/2
-
-
+	ll ret;
+	cin >> A >> B >> C;
+	ret = Go(B);
 	cout << ret << "\n";
-
 	return 0;
+}
+
+ll Go(ll n)
+{
+	if (n == 1) return A % C;
+	ll ret = Go(n / 2);
+	ret = (ret * ret) % C;
+	if (n % 2) return (ret * A) % C;
+	return ret;
 }
 
 #pragma endregion
