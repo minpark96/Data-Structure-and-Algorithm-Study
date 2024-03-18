@@ -75,5 +75,11 @@
     <ClCompile Include="2-C-2468.cpp">
       <Filter>소스 파일\2</Filter>
     </ClCompile>
+    <ClCompile Include="2-D-2583.cpp">
+      <Filter>소스 파일\2</Filter>
+    </ClCompile>
+    <ClCompile Include="2-E-1992.cpp">
+      <Filter>소스 파일\2</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
