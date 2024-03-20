@@ -4,18 +4,17 @@
 #include <algorithm>
 using namespace std;
 
+/*
+	글자가 100자리 까지 가능하므로 int 타입으로 처리하는 것이 불가능 하였음.
+*/
+
 #pragma region 최초 풀이
 
 bool cmp(string a, string b)
 {
 	if (a.size() == b.size())
 	{
-		for (int i = 0; i < a.size(); i++)
-		{
-			if (a[i] == b[i]) continue;
-			else 
-				return a[i] < b[i];
-		}
+		return a < b;
 	}
 	return a.size() < b.size();
 }
@@ -59,7 +58,7 @@ int main()
 			else
 				break;
 		}
-		v[i].erase(v[i].begin(), v[i].begin() + pos);
+		v[i].erase(0, pos);
 	}
 
 	sort(v.begin(), v.end(), cmp);
