@@ -96,5 +96,8 @@
     <ClCompile Include="2-J-10709.cpp">
       <Filter>소스 파일\2</Filter>
     </ClCompile>
+    <ClCompile Include="2-K-3474.cpp">
+      <Filter>소스 파일\2</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
