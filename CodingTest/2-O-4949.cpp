@@ -32,13 +32,12 @@ int main()
 			{
 				if (!sta.empty())
 				{
-					char temp = sta.top();
-					sta.pop();
-					if ((temp == '[' && s[j] == ')') || (temp == '(' && s[j] == ']'))
+					if ((sta.top() == '[' && s[j] == ')') || (sta.top() == '(' && s[j] == ']'))
 					{
 						flag = false;
 						break;
 					}
+					sta.pop();
 				}
 				else
 				{
