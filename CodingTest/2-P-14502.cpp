@@ -1,7 +1,9 @@
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <vector>
 using namespace std;
+
+#pragma region 최초 풀이
 
 int dy[] = { -1, 0, 1, 0 };
 int dx[] = { 0, 1, 0, -1 };
@@ -21,7 +23,7 @@ void dfs(int y, int x)
 		int nx = x + dx[i];
 
 		if (ny < 0 || nx < 0 || ny >= n || nx >= m) continue;
-		if (a[ny][nx] == 1 || !visited[ny][nx]) continue;
+		if (a[ny][nx] == 1 || visited[ny][nx] == 1) continue;
 		dfs(ny, nx);
 	}
 }
@@ -47,9 +49,9 @@ int main()
 	nWall += 3;
 	for (int i = 0; i < vEmpty.size() - 2; i++)
 	{
-		for (int j = i; j < vEmpty.size() - 1; j++)
+		for (int j = i + 1; j < vEmpty.size() - 1; j++)                                      
 		{
-			for (int k = j; k < vEmpty.size(); k++)
+			for (int k = j + 1; k < vEmpty.size(); k++)
 			{
 				memset(visited, 0, sizeof(visited));
 				nVirus = 0;
@@ -61,7 +63,7 @@ int main()
 					if (visited[vVirus[l].first][vVirus[l].second] == 0)
 						dfs(vVirus[l].first, vVirus[l].second);
 				}
-				ret = max(ret, n * m - (nWall + nVirus));
+				ret = max(ret, n * m - nWall - nVirus);
 				a[vEmpty[i].first][vEmpty[i].second] = 0;
 				a[vEmpty[j].first][vEmpty[j].second] = 0;
 				a[vEmpty[k].first][vEmpty[k].second] = 0;
@@ -73,3 +75,5 @@ int main()
 
 	return 0;
 }
+
+#pragma endregion
