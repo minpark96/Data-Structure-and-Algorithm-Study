@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\2">
       <UniqueIdentifier>{744e7c97-351f-40ce-92f7-d7b2356300a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\3">
+      <UniqueIdentifier>{215c53cf-dc65-4097-966e-a45b5f5564c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1-A-2309.cpp">
@@ -125,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="2-T-17298.cpp">
       <Filter>소스 파일\2</Filter>
+    </ClCompile>
+    <ClCompile Include="3-A-15686.cpp">
+      <Filter>소스 파일\3</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
