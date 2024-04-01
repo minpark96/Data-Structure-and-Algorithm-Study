@@ -2,6 +2,11 @@
 #include <vector>
 using namespace std;
 
+/*
+	무식하게 풀면 된다.
+	bfs까지 필요없는데 거리를 bfs로 구하려고 했다. 조합을 구하는 방법을 구하는게 어려웠다.
+*/
+
 #pragma region 최초 풀이
 
 int n, m, a[54][54];

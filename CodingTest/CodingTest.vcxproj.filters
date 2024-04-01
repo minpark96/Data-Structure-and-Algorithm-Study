@@ -132,5 +132,8 @@
     <ClCompile Include="3-A-15686.cpp">
       <Filter>소스 파일\3</Filter>
     </ClCompile>
+    <ClCompile Include="3-B-2589.cpp">
+      <Filter>소스 파일\3</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
