@@ -6,7 +6,7 @@ using namespace std;
 
 int dy[] = { -1, 0, 1, 0 };
 int dx[] = { 0, 1, 0, -1 };
-int n, l, r, a[104][104], visited[104][104], ret;
+int n, l, r, a[54][54], visited[54][54], ret;
 
 int dfs(int y, int x, vector<pair<int, int>>& v)
 {
@@ -65,7 +65,7 @@ int main()
 		}
 		if (flag == false) break;
 		ret++;
-		fill(&visited[0][0], &visited[0][0] + 104 * 104, 0);
+		fill(&visited[0][0], &visited[0][0] + 54 * 54, 0);
 	}
 	cout << ret << "\n";
 	return 0;
